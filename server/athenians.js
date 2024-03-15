@@ -145,6 +145,7 @@ app.post("/ussd", (req, res) => {
             from: "Mafichoni",
           });
       }
+      RSVP()
     } else {
       response = "END Event not found. Please try again.";
     }
