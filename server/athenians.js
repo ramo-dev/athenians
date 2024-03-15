@@ -121,11 +121,31 @@ app.post("/ussd", (req, res) => {
     const events = returnEvents(selectedLocation);
     if (events.length > 0) {
       response = `CON Events in ${selectedLocation}:\n`;
-      events.forEach((event) => {
-        response += `${event.events} - ${event.date}\n`;
+      events.forEach((event, idx) => {
+        response += `${idx + 1}. ${event.events} - ${event.date}\n`; // Add 1 to idx for 1-based index
       });
+      response += "Reply with the number of the event you want to RSVP to:";
+    }
+  } else if (
+    text.startsWith("1*") ||
+    text.startsWith("2*") ||
+    text.startsWith("3*") ||
+    text.startsWith("4*")
+  ) {
+    const locationIndex = parseInt(text.charAt(0)) - 1;
+    const locationNames = ["Juja", "Kroad", "Thika", "Ruiru"];
+    const selectedLocation = locationNames[locationIndex];
+    const events = returnEvents(selectedLocation);
+    const eventIndex = parseInt(text.slice(2)) - 1; // Extract the event index from user input
+    const selectedEvent = events[eventIndex];
+    if (selectedEvent) {
+      // Handle RSVP logic for the selected event
+      response = `CON RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
+    } else {
+      response = "END Event not found. Please try again.";
     }
   }
+
 
   res.set("Content-Type", "text/plain");
   res.send(response);
