@@ -12,57 +12,57 @@ const location = [
   {
     events: "Nyama Fests",
     location: "Juja",
-    date: "1-2-2024",
+    date: "5-6-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Pork fest",
     location: "Ruiru",
-    date: "12-3-2022",
+    date: "8-3-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Pizza fest",
     location: "Kroad",
-    date: "12-3-2022",
+    date: "2-5-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Pool Party",
     location: "Thika",
-    date: "12-3-2022",
+    date: "6-3-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Fashion show",
     location: "Ruiru",
-    date: "12-3-2022",
+    date: "2-3-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Soul Fest",
     location: "Thika",
-    date: "12-3-2024",
+    date: "2-10-2024",
   },
   {
-    events: "Nyama Fests",
+    events: "Subaru Fest",
     location: "Juja",
-    date: "1-2-2024",
+    date: "8-8-2024",
   },
   {
-    events: "Kuku fest",
+    events: "Meet and greet",
     location: "Ruiru",
-    date: "12-3-2022",
+    date: "1-12-2024",
   },
   {
     events: "Drinks and Link",
     location: "Kroad",
-    date: "12-3-2022",
+    date: "2-3-2024",
   },
   {
-    events: "Nyama choma",
+    events: "Africas talking hackathon",
     location: "Thika",
-    date: "12-3-2022",
+    date: "2-8-2024",
   },
   {
-    events: "Pool Party",
+    events: "Burudani fest",
     location: "Ruiru",
-    date: "12-3-2022",
+    date: "12-12-2024",
   },
 ];
 
@@ -107,7 +107,8 @@ app.post("/ussd", (req, res) => {
 
   if (text === "") {
     response = `CON Welcome to Mafichoni Baze.
-        Where ..............
+        Your gateway to descovering the best events and restaurants in your area!\n
+        
         Where are You?
         1. Juja
         2. Kroad
