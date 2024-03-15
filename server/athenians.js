@@ -141,7 +141,7 @@ app.post("/ussd", (req, res) => {
           await africastalking.SMS.send({
             to: phoneNumber,
             message: `RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-            
+            from: "54323",
           });
         } catch (err) {
           console.log(err);
