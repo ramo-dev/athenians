@@ -139,11 +139,15 @@ app.post("/ussd", (req, res) => {
       // Handle RSVP logic for the selected event
       response = `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
       async function RSVP(){
-          await africastalking.SMS.send({
-            to: phoneNumber,
-            message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-            from: "Mafichoni",
-          });
+          try {
+            await africastalking.SMS.send({
+              to: phoneNumber,
+              message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
+              from: "Mafichoni",
+            });
+          } catch (err) {
+            console.log(err);
+          }
       }
       RSVP()
     } else {
