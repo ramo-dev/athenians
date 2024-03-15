@@ -72,7 +72,7 @@ const location = [
 
 const africastalking = AfricasTalking({
   apiKey: "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801",
-  username: "athenians",
+  username: "sandbox",
 });
 
 app.use(bodyParser.json());
@@ -143,7 +143,7 @@ app.post("/ussd", (req, res) => {
             await africastalking.SMS.send({
               to: phoneNumber,
               message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-              from: "sandbox",
+              from: "mafichoni",
             });
           } catch (err) {
             console.log(err);
