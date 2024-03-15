@@ -70,8 +70,8 @@ const location = [
 // const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
 
 const africastalking = AfricasTalking({
-  apiKey: "acfa4414e9556bcb746a27e8c753e54c67c2ae8e7e90d3414649739fdea6de76",
-  username: "sandbox",
+  apiKey: "e598cc692232f6b172383a3e6732cd8310e8ffa3e9394a43cf998653d7abfb0a",
+  username: "athenians",
 });
 
 app.use(bodyParser.json());
@@ -141,7 +141,6 @@ app.post("/ussd", (req, res) => {
           await africastalking.SMS.send({
             to: phoneNumber,
             message: `RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-            from: "54323",
           });
         } catch (err) {
           console.log(err);
