@@ -85,17 +85,6 @@ function returnEvents(locationName) {
   return eventsInLocation;
 }
 
-const events = location.map((event) => {
-  return event.event;
-});
-
-const eventsCount = events.length;
-let eventsList = "";
-
-// Iterate over the events array to create a list
-events.forEach((event, index) => {
-  // eventsList += `${index + 1}. ${event.name}: ${event.details}\n`;
-});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -107,8 +96,9 @@ app.post("/ussd", (req, res) => {
 
   if (text === "") {
     response = `CON Welcome to Mafichoni Baze.
-        Your gateway to descovering the best events and restaurants in your area!\n
-        
+    
+        Your gateway to descovering the best events and restaurants in your area!
+
         Where are You?
         1. Juja
         2. Kroad
