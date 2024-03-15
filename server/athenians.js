@@ -3,6 +3,7 @@ const http = require("http");
 const app = express();
 const bodyParser = require("body-parser");
 const server = http.createServer(app);
+const AfricasTalking = require("africastalking");
 const location = [
   {
     events: "Kuku fest",
@@ -68,6 +69,12 @@ const location = [
 
 // const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
 
+
+const africastalking = AfricasTalking({
+  apiKey: "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801",
+  username: "athenians",
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -90,7 +97,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/ussd", (req, res) => {
-  const { text } = req.body;
+  const { text, phoneNumber } = req.body;
 
   let response = "";
 
@@ -131,6 +138,13 @@ app.post("/ussd", (req, res) => {
     if (selectedEvent) {
       // Handle RSVP logic for the selected event
       response = `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
+      async function RSVP(){
+          await africastalking.SMS.send({
+            to: phoneNumber,
+            message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
+        from: "",
+          });
+      }
     } else {
       response = "END Event not found. Please try again.";
     }
