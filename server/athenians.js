@@ -140,7 +140,7 @@ app.post("/ussd", (req, res) => {
     const selectedEvent = events[eventIndex];
     if (selectedEvent) {
       // Handle RSVP logic for the selected event
-      response = `CON RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
+      response = `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
     } else {
       response = "END Event not found. Please try again.";
     }
