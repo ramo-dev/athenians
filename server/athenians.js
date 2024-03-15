@@ -69,7 +69,6 @@ const location = [
 
 // const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
 
-
 const africastalking = AfricasTalking({
   apiKey: "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801",
   username: "sandbox",
@@ -91,7 +90,6 @@ function returnEvents(locationName) {
   );
   return eventsInLocation;
 }
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -138,23 +136,22 @@ app.post("/ussd", (req, res) => {
     if (selectedEvent) {
       // Handle RSVP logic for the selected event
       response = `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`;
-      async function RSVP(){
-          try {
-            await africastalking.SMS.send({
-              to: phoneNumber,
-              message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-              from: "mafichoni",
-            });
-          } catch (err) {
-            console.log(err);
-          }
+      async function RSVP() {
+        try {
+          await africastalking.SMS.send({
+            to: phoneNumber,
+            message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
+            
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }
-      RSVP()
+      RSVP();
     } else {
       response = "END Event not found. Please try again.";
     }
   }
-
 
   res.set("Content-Type", "text/plain");
   res.send(response);
@@ -163,5 +160,3 @@ app.post("/ussd", (req, res) => {
 server.listen(3001, () => {
   console.log("Its alive");
 });
-
-
