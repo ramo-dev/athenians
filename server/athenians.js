@@ -142,7 +142,7 @@ app.post("/ussd", (req, res) => {
           await africastalking.SMS.send({
             to: phoneNumber,
             message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
-        from: "",
+            from: "Mafichoni",
           });
       }
     } else {
