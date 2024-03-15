@@ -96,7 +96,6 @@ app.post("/ussd", (req, res) => {
 
   if (text === "") {
     response = `CON Welcome to Mafichoni Baze.
-    
         Your gateway to descovering the best events and restaurants in your area!
 
         Where are You?
@@ -113,7 +112,7 @@ app.post("/ussd", (req, res) => {
     if (events.length > 0) {
       response = `CON Events in ${selectedLocation}:\n`;
       events.forEach((event, idx) => {
-        response += `${idx + 1}. ${event.events} - ${event.date}\n`; // Add 1 to idx for 1-based index
+        response += `${idx + 1}. ${event.events} on ${event.date}\n`; // Add 1 to idx for 1-based index
       });
       response += "Reply with the number of the event you want to RSVP to:";
     }
