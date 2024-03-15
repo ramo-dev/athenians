@@ -140,7 +140,7 @@ app.post("/ussd", (req, res) => {
         try {
           await africastalking.SMS.send({
             to: phoneNumber,
-            message: `END RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
+            message: `RSVP successful for ${selectedEvent.events} at ${selectedLocation} on ${selectedEvent.date}.`,
             
           });
         } catch (err) {
