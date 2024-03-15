@@ -70,7 +70,7 @@ const location = [
 // const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
 
 const africastalking = AfricasTalking({
-  apiKey: "444b0f83f59064c32b678bc46d59ca9ffef667d313cc67f445f93796f2c1a753",
+  apiKey: "acfa4414e9556bcb746a27e8c753e54c67c2ae8e7e90d3414649739fdea6de76",
   username: "sandbox",
 });
 
