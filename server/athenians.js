@@ -67,11 +67,11 @@ const location = [
   },
 ];
 
-// const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
+// const api = "444b0f83f59064c32b678bc46d59ca9ffef667d313cc67f445f93796f2c1a753";
 
 const africastalking = AfricasTalking({
-  apiKey: "444b0f83f59064c32b678bc46d59ca9ffef667d313cc67f445f93796f2c1a753",
-  username: "sandbox",
+  apiKey: "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801",
+  username: "athenians",
 });
 
 app.use(bodyParser.json());
