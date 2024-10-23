@@ -4,74 +4,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const server = http.createServer(app);
 const AfricasTalking = require("africastalking");
-const location = [
-  {
-    events: "Kuku fest",
-    location: "Thika",
-    date: "12-3-2024",
-  },
-  {
-    events: "Nyama Fests",
-    location: "Juja",
-    date: "5-6-2024",
-  },
-  {
-    events: "Pork fest",
-    location: "Ruiru",
-    date: "8-3-2024",
-  },
-  {
-    events: "Pizza fest",
-    location: "Kroad",
-    date: "2-5-2024",
-  },
-  {
-    events: "Pool Party",
-    location: "Thika",
-    date: "6-3-2024",
-  },
-  {
-    events: "Fashion show",
-    location: "Ruiru",
-    date: "2-3-2024",
-  },
-  {
-    events: "Soul Fest",
-    location: "Thika",
-    date: "2-10-2024",
-  },
-  {
-    events: "Subaru Fest",
-    location: "Juja",
-    date: "8-8-2024",
-  },
-  {
-    events: "Meet and greet",
-    location: "Ruiru",
-    date: "1-12-2024",
-  },
-  {
-    events: "Drinks and Link",
-    location: "Kroad",
-    date: "2-3-2024",
-  },
-  {
-    events: "Africas talking hackathon",
-    location: "Thika",
-    date: "2-8-2024",
-  },
-  {
-    events: "Burudani fest",
-    location: "Ruiru",
-    date: "12-12-2024",
-  },
-];
+const location = require("./data");
 
-// const api = "52239c6ce3fdd8f46102821a5476e3ad9d752e6fbd09eec32eb5c40775221801";
 
 const africastalking = AfricasTalking({
-  apiKey: "e598cc692232f6b172383a3e6732cd8310e8ffa3e9394a43cf998653d7abfb0a",
-  username: "athenians",
+  apiKey: "Enter your Api Key",
+  username: "Enter your africastalking username",
 });
 
 app.use(bodyParser.json());
@@ -156,6 +94,6 @@ app.post("/ussd", (req, res) => {
   res.send(response);
 });
 
-server.listen(3001, () => {
+server.listen(3003, () => {
   console.log("Its alive");
 });
